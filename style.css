@@ -6,3 +6,29 @@
   box-sizing: border-box;
 }
 
+.main{
+  padding-top: 20px;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.memory {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.memory-item {
+  border: 1px solid;
+  width: 100px;
+  height: 100px;
+  justify-self: center;
+}
+
+.memory-item:hover {
+  cursor: pointer;
+}

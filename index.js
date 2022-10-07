@@ -44,7 +44,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const secondCardName = secondCard.dataset.name
     if(firstCardName === secondCardName){
       [firstCard, secondCard].forEach(card => {
-        setTimeout(() => card.style.display = 'none', 500)
+        setTimeout(() => card.style.opacity = '0', 500)
       })
     }
     else{

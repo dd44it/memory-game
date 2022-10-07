@@ -2,6 +2,8 @@ window.addEventListener('DOMContentLoaded', () => {
   const mememoryWrapper = document.querySelector('.memory')
   const tempMap = new Map()
   const cardName = ['clown-icon', 'dracula-icon', 'nun-icon', 'cyclops-icon', 'goblin-icon', 'mummy-icon', 'clown-icon', 'dracula-icon', 'nun-icon', 'cyclops-icon', 'goblin-icon', 'mummy-icon']
+  const gameWin = cardName.length / 2
+  let gameScore = 0
 
   function randomArr(array){
     return array.sort(function() { return 0.5 - Math.random() })
@@ -46,6 +48,13 @@ window.addEventListener('DOMContentLoaded', () => {
       [firstCard, secondCard].forEach(card => {
         setTimeout(() => card.style.opacity = '0', 500)
       })
+      gameScore += 1
+      if(gameWin === gameScore){
+        setTimeout(() => {
+          alert('You won!')
+          location.reload()
+        }, 500)
+      }
     }
     else{
       [firstCard, secondCard].forEach(card => {

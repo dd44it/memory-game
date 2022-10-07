@@ -1,6 +1,29 @@
 window.addEventListener('DOMContentLoaded', () => {
-  const allCard = document.querySelectorAll('.memory-item')
+  const mememoryWrapper = document.querySelector('.memory')
   const tempMap = new Map()
+  const cardName = ['clown-icon', 'dracula-icon', 'nun-icon', 'clown-icon', 'dracula-icon', 'nun-icon']
+
+  function randomArr(array){
+    return array.sort(function() { return 0.5 - Math.random() })
+  }
+
+  const randCardList = randomArr(cardName)
+
+  for(let i = 0; i < cardName.length; i++){
+    const templateMemmoryItem = `
+      <div class="memory-item" data-name="${randCardList[i]}" data-id="${i}">
+        <div class="back_card_wrap">
+          <img src="img/back-card-icon.svg" alt="back">
+        </div>
+        <div class="front_card_wrap">
+          <img src="img/${randCardList[i]}.svg" alt="">
+        </div>
+      </div>
+    `
+    mememoryWrapper.insertAdjacentHTML('beforeend', templateMemmoryItem)
+  }
+
+  const allCard = mememoryWrapper.querySelectorAll('.memory-item')
 
   for(let card of allCard){
     card.addEventListener('click', flipCard)

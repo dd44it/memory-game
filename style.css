@@ -29,6 +29,7 @@
   position: relative;
   user-select: none;
   perspective: 1000px;
+  transition: all 0.5s ease-out;
 }
 
 .back_card_wrap,

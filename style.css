@@ -17,7 +17,6 @@
 
 .memory {
   display: grid;
-  grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
 }
@@ -65,4 +64,16 @@
 
 .memory-item:hover {
   cursor: pointer;
+}
+
+@media(max-width: 375px){
+  .memory {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .memory-item {
+    width: 130px;
+    height: 130px;
+    margin-bottom: 20px;
+  }
 }

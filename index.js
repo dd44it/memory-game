@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
   const mememoryWrapper = document.querySelector('.memory')
   const tempMap = new Map()
-  const cardName = ['clown-icon', 'dracula-icon', 'nun-icon', 'clown-icon', 'dracula-icon', 'nun-icon']
+  const cardName = ['clown-icon', 'dracula-icon', 'nun-icon', 'cyclops-icon', 'goblin-icon', 'mummy-icon', 'clown-icon', 'dracula-icon', 'nun-icon', 'cyclops-icon', 'goblin-icon', 'mummy-icon']
 
   function randomArr(array){
     return array.sort(function() { return 0.5 - Math.random() })

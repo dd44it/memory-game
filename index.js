@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
   const allCard = document.querySelectorAll('.memory-item')
-  const tempArr = []
+  const tempMap = new Map()
 
   for(let card of allCard){
     card.addEventListener('click', flipCard)
@@ -9,24 +9,27 @@ window.addEventListener('DOMContentLoaded', () => {
   function flipCard(e){
     const card = e.currentTarget
     card.classList.add('active')
-    tempArr.push(card)
-    if(tempArr.length === 2){
-      isEqual(tempArr)
-    }
+    if(!tempMap.has(card.dataset.id)) tempMap.set(card.dataset.id, card)
+    if(tempMap.size === 2) isEqual(tempMap)
   }
 
-  function isEqual(listCard){
-    if(listCard[0].dataset.name !== listCard[1].dataset.name){
-      listCard.forEach(card => {
-        setTimeout(() => card.classList.remove('active'), 500)
-      })
-    }
-    else {
-      listCard.forEach(card => {
+  function isEqual(mapCard){
+    const iterator1 = mapCard.values()
+    const firstCard = iterator1.next().value
+    const secondCard = iterator1.next().value
+    const firstCardName = firstCard.dataset.name
+    const secondCardName = secondCard.dataset.name
+    if(firstCardName === secondCardName){
+      [firstCard, secondCard].forEach(card => {
         setTimeout(() => card.style.display = 'none', 500)
       })
     }
-    tempArr.length = 0
+    else{
+      [firstCard, secondCard].forEach(card => {
+        setTimeout(() => card.classList.remove('active'), 500)
+      })
+    }
+    tempMap.clear()
   }
 
 })

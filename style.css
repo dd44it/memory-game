@@ -8,8 +8,21 @@
 
 body {
   font-family: 'Lucida Sans', sans-serif;
+}
+
+body.light {
   background-color: #FCF8E8;
   color: #516257;
+}
+
+body.dark {
+  background-color: #1F1D36;
+  color: #E9A6A6;
+}
+
+body.dark .memory-item {
+  background-color: #864879;
+  box-shadow: none;
 }
 
 .main{
@@ -19,6 +32,7 @@ body {
 .container {
   max-width: 400px;
   margin: 0 auto;
+  position: relative;
 }
 
 .title {
@@ -40,8 +54,16 @@ body {
   user-select: none;
   perspective: 1000px;
   transition: all 0.5s ease-out;
+}
+
+body.light  .memory-item {
   background-color: #CEE5D0;
   box-shadow: -3px -3px 7px #ffffff, 3px 3px 5px #ceced1;
+}
+
+body.dark  .memory-item {
+  background-color: #864879;
+  box-shadow: none;
 }
 
 .back_card_wrap,
@@ -79,6 +101,17 @@ body {
   cursor: pointer;
 }
 
+.toggle-btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: -20%;
+  top: 0;
+}
+
 @media(max-width: 375px){
   .memory {
     grid-template-columns: 1fr 1fr;
@@ -97,7 +130,6 @@ body {
     color: #E9A6A6;
   }
   .memory-item {
-    border: none;
     background-color: #864879;
     box-shadow: none;
   }

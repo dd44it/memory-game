@@ -4,6 +4,49 @@ window.addEventListener('DOMContentLoaded', () => {
   const cardName = ['clown-icon', 'dracula-icon', 'nun-icon', 'cyclops-icon', 'goblin-icon', 'mummy-icon', 'clown-icon', 'dracula-icon', 'nun-icon', 'cyclops-icon', 'goblin-icon', 'mummy-icon']
   const gameWin = cardName.length / 2
   let gameScore = 0
+  const toggleBtn = document.querySelector('.toggle-btn')
+  const toggleIcon = toggleBtn.querySelector('img')
+  const body = document.querySelector('body')
+  const colorSchemeQueryList = window.matchMedia('(prefers-color-scheme: dark)')
+  
+  const setColorScheme = e => {
+    if (e.matches) {
+      // Dark
+      toggleIcon.setAttribute('src', 'img/moon_icon.svg')
+      body.classList.remove('light')
+      body.classList.add('dark')
+      toggleBtn.classList.remove('sun')
+      toggleBtn.classList.add('dark')
+
+    } else {
+      // Light
+      toggleBtn.classList.remove('dark')
+      toggleBtn.classList.add('sun')
+      toggleIcon.setAttribute('src', 'img/sun_icon.svg')
+      body.classList.remove('dark')
+      body.classList.add('light')
+    }
+  }
+    
+  setColorScheme(colorSchemeQueryList);
+  colorSchemeQueryList.addEventListener('change', setColorScheme)
+
+
+  toggleBtn.addEventListener('click', toggleMode)
+
+  function toggleMode(){
+    toggleBtn.classList.toggle('sun')
+    if(toggleBtn.classList.contains('sun')){
+      toggleIcon.setAttribute('src', 'img/sun_icon.svg')
+      body.classList.remove('dark')
+      body.classList.add('light')
+    }
+    else{
+      toggleIcon.setAttribute('src', 'img/moon_icon.svg')
+      body.classList.remove('light')
+      body.classList.add('dark')
+    }
+  }
 
   function randomArr(array){
     return array.sort(function() { return 0.5 - Math.random() })

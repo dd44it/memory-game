@@ -58,7 +58,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     else{
       [firstCard, secondCard].forEach(card => {
-        setTimeout(() => card.classList.remove('active'), 500)
+        setTimeout(() => card.classList.remove('active'), 1000)
       })
     }
     tempMap.clear()

@@ -10,18 +10,14 @@ window.addEventListener('DOMContentLoaded', () => {
   const colorSchemeQueryList = window.matchMedia('(prefers-color-scheme: dark)')
   
   const setColorScheme = e => {
-    if (e.matches) {
+    if (e.matches){
       // Dark
       toggleIcon.setAttribute('src', 'img/moon_icon.svg')
       body.classList.remove('light')
       body.classList.add('dark')
-      toggleBtn.classList.remove('sun')
-      toggleBtn.classList.add('dark')
-
-    } else {
+    } 
+    else{
       // Light
-      toggleBtn.classList.remove('dark')
-      toggleBtn.classList.add('sun')
       toggleIcon.setAttribute('src', 'img/sun_icon.svg')
       body.classList.remove('dark')
       body.classList.add('light')
@@ -31,12 +27,10 @@ window.addEventListener('DOMContentLoaded', () => {
   setColorScheme(colorSchemeQueryList);
   colorSchemeQueryList.addEventListener('change', setColorScheme)
 
-
   toggleBtn.addEventListener('click', toggleMode)
 
   function toggleMode(){
-    toggleBtn.classList.toggle('sun')
-    if(toggleBtn.classList.contains('sun')){
+    if(body.classList.contains('dark')){
       toggleIcon.setAttribute('src', 'img/sun_icon.svg')
       body.classList.remove('dark')
       body.classList.add('light')
@@ -96,7 +90,7 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
           alert('You won!')
           location.reload()
-        }, 500)
+        }, 800)
       }
     }
     else{
